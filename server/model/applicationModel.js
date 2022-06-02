@@ -24,6 +24,10 @@ const applicationSchema = mongoose.Schema({
     banner: {
         type: Image,
         required: false
+    },
+    applicationSchemas: {
+        type: [mongoose.Types.ObjectId],
+        required: false
     }
 });
 
