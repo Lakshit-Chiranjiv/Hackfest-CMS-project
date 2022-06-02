@@ -15,6 +15,6 @@ const customSchemaSchema = mongoose.Schema({
     }
 });
 
-const customSchemaModel = mongoose.model('customSchemas',customSchemaSchema);
+const customSchemaModel = mongoose.model('customschemas',customSchemaSchema);
 
 export default customSchemaModel;

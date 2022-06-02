@@ -11,6 +11,6 @@ const inputFieldSchema = mongoose.Schema({
     }
 });
 
-const inputFieldModel = mongoose.model('inputFields',inputFieldSchema);
+const inputFieldModel = mongoose.model('inputfields',inputFieldSchema);
 
 export default inputFieldModel;
