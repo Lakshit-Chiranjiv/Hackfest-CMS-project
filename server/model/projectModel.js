@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { customSchemaSchema } from "./customSchemaSchema";
 
-const applicationSchema = mongoose.Schema({
+const projectSchema = mongoose.Schema({
     number: {
         type: Number,
         required: true
@@ -25,12 +26,12 @@ const applicationSchema = mongoose.Schema({
         type: Image,
         required: false
     },
-    applicationSchemas: {
-        type: [mongoose.Types.ObjectId],
+    schemas: {
+        type: [customSchemaSchema],
         required: false
     }
 });
 
-const applicationModel = mongoose.model('applications',applicationSchema);
+const projectModel = mongoose.model('projects',projectSchema);
 
-export default applicationModel;
+export default projectModel;
