@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { inputFieldSchema } from "./inputFieldSchemaa";
 
-const customSchemaSchema = mongoose.Schema({
+export const customSchemaSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -10,11 +11,7 @@ const customSchemaSchema = mongoose.Schema({
         required: false
     },
     inputFields: {
-        type: [mongoose.Types.ObjectId],
+        type: [inputFieldSchema],
         required: false
     }
 });
-
-const customSchemaModel = mongoose.model('customschemas',customSchemaSchema);
-
-export default customSchemaModel;
