@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 export const inputFieldSchema = mongoose.Schema({
+    fieldId: {
+        type: mongoose.Types.ObjectId,
+        required: true
+    },
     name: {
         type: String,
         required: true
