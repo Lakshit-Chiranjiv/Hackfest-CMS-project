@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 import { customSchemaSchema } from "./customSchemaSchema";
 
 export const projectSchema = mongoose.Schema({
+    projectId: {
+        type: mongoose.Types.ObjectId,
+        required: true
+    },
     number: {
         type: Number,
         required: true
