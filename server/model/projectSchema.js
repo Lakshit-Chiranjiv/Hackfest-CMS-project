@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { customSchemaSchema } from "./customSchemaSchema";
 
-const projectSchema = mongoose.Schema({
+export const projectSchema = mongoose.Schema({
     number: {
         type: Number,
         required: true
@@ -31,7 +31,3 @@ const projectSchema = mongoose.Schema({
         required: false
     }
 });
-
-const projectModel = mongoose.model('projects',projectSchema);
-
-export default projectModel;
