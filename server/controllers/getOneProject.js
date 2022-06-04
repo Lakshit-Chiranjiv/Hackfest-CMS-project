@@ -1,4 +1,4 @@
-import projectModel from "../models/projectModel.js";
+import { returnUserData } from "./returnUserData";
 
 export const getOneProject = async(req,res) => {
     const { email,id } = req.params;
