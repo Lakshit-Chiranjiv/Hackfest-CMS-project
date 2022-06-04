@@ -1,6 +1,6 @@
 import dataModel from "../models/dataModel.js";
 
-export const getUserData = async(email) => {
+export const returnUserData = async(email) => {
     try {
         const foundUser = await dataModel.find({ email });
         if(!foundUser) throw Error('could not find user');
