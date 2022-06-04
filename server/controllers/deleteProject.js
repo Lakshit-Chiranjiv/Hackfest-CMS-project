@@ -1,7 +1,7 @@
 import dataModel from "../models/dataModel.js";
 import { returnUserData } from "./returnUserData.js";
 
-export const addProject = async(req,res) => {
+export const deleteProject = async(req,res) => {
     const { id } = req.params;
     let allProjects;
 
