@@ -17,5 +17,9 @@ export const customSchemaSchema = mongoose.Schema({
     inputFields: {
         type: [inputFieldSchema],
         required: false
+    },
+    data: {
+        type: [],
+        required: false
     }
 });
