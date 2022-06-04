@@ -1,4 +1,3 @@
-import dataModel from "../models/dataModel.js";
 import { returnUserData } from "./returnUserData.js";
 
 export const getAllSchemas = async(req,res) => {
