@@ -2,7 +2,7 @@ import dataModel from "../models/dataModel.js";
 import { returnUserData } from "./returnUserData.js";
 
 export const deleteProject = async(req,res) => {
-    const { id } = req.params;
+    const { id,pid } = req.params;
     let allProjects;
 
     try {
@@ -13,7 +13,7 @@ export const deleteProject = async(req,res) => {
         res.status(400).json({message: error});
     }
 
-    const newProjectList = allProjects.filter(project => project.projectId!==id)
+    const newProjectList = allProjects.filter(project => project.projectId!==pid)
 
     try {
         const updatedUser = await dataModel.findByIdAndUpdate(id,newProjectList);
