@@ -9,7 +9,6 @@ export const addProject = async(req,res) => {
         const foundUser = returnUserData(email);
         allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
-        res.status(200).json(allProjects);
     } catch (error) {
         res.status(400).json({message: error});
     }
