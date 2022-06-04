@@ -4,9 +4,10 @@ import { returnUserData } from "./returnUserData.js";
 export const deleteProject = async(req,res) => {
     const { id,pid } = req.params;
     let allProjects;
+    let foundUser;
 
     try {
-        const foundUser = returnUserData(email);
+        foundUser = returnUserData(email);
         allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
     } catch (error) {
@@ -14,9 +15,10 @@ export const deleteProject = async(req,res) => {
     }
 
     const newProjectList = allProjects.filter(project => project.projectId!==pid)
+    const newUser = {...foundUser,projects: newProjectList};
 
     try {
-        const updatedUser = await dataModel.findByIdAndUpdate(id,newProjectList);
+        const updatedUser = await dataModel.findByIdAndUpdate(id,newUser);
         if(!updatedUser) throw Error('could not delete project');
         res.status(200).json({message: `successfully deleted project`});
     } catch (error) {
