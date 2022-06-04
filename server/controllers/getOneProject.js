@@ -1,9 +1,10 @@
 import projectModel from "../models/projectModel.js";
 
 export const getOneProject = async(req,res) => {
-    const { id } = req.params;
+    const { email,id } = req.params;
     try {
-        const foundProject = await projectModel.findById(id);
+        const foundUser = returnUserData(email);
+        const foundProject = foundUser.projects.find(project => project.projectId===id);
         if(!foundProject) throw Error('could not find project');
         res.status(200).json(foundProject);
     } catch (error) {
