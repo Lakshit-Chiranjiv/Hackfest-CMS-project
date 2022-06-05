@@ -12,10 +12,10 @@ export const deleteProject = async(req,res) => {
         allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
     } catch (error) {
-        res.status(400).json({message: error});
+        res.status(400).json({message: error.message});
     }
 
-    const newProjectList = allProjects.filter(project => project.projectId!==pid)
+    const newProjectList = allProjects.filter(project => project.projectId.toString()!==pid)
     const newUser = {...foundUser,projects: newProjectList};
 
     try {
@@ -23,6 +23,6 @@ export const deleteProject = async(req,res) => {
         if(!updatedUser) throw Error('could not delete project');
         res.status(200).json({message: `successfully deleted project`});
     } catch (error) {
-        res.status(400).json({message: error});
+        res.status(400).json({message: error.message});
     }
 }

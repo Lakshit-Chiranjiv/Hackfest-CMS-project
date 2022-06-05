@@ -12,7 +12,7 @@ export const addProject = async(req,res) => {
         allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
     } catch (error) {
-        res.status(400).json({message: error});
+        res.status(400).json({message: error.message});
     }
 
     const newUser = {...foundUser,projects: [...allProjects,req.body]}
@@ -22,6 +22,6 @@ export const addProject = async(req,res) => {
         if(!updatedUser) throw Error('could not add project');
         res.status(200).json({message: `successfully added project : ${req.body.name}`});
     } catch (error) {
-        res.status(400).json({message: error});
+        res.status(400).json({message: error.message});
     }
 }

@@ -8,22 +8,22 @@ export const deleteSchema = async(req,res) => {
     try {
         const foundUsers = await returnUserById(id);
         foundUser = foundUsers[0];
-        const selectedProject = foundUser.projects.find(project => project.projectId===pid)
+        const selectedProject = foundUser.projects.find(project => project.projectId.toString()===pid)
         allSchemas = selectedProject.schemas;
         if(!allSchemas) throw Error('cannot get user schemas due to some server error');
     } catch (error) {
-        res.status(400).json({message: error});
+        res.status(400).json({message: error.message});
     }
 
-    const filteredSchemas = allSchemas.filter(schema => schema.schemaId!==sid)
+    const filteredSchemas = allSchemas.filter(schema => schema.schemaId.toString()!==sid)
 
-    foundUser.projects.find(project => project.projectId===pid).schemas = filteredSchemas;
+    foundUser.projects.find(project => project.projectId.toString()===pid).schemas = filteredSchemas;
 
     try {
         const updatedUser = await dataModel.findByIdAndUpdate(id,foundUser);
         if(!updatedUser) throw Error('could not delete schema');
         res.status(200).json({message: `successfully deleted schema`});
     } catch (error) {
-        res.status(400).json({message: error});
+        res.status(400).json({message: error.message});
     }
 }
