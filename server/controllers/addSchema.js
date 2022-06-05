@@ -11,8 +11,6 @@ export const addSchema = async(req,res) => {
     } catch (error) {
         res.status(400).json({message: error});
     }
-
-
     foundUser.projects.find(project => project.projectId===pid).schemas.push(req.body);
 
     try {
