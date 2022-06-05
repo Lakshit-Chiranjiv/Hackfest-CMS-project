@@ -19,7 +19,7 @@ import { deleteSchema } from './../controllers/deleteSchema.js';
  
 const router = express.Router();
 
-router.get('user/:email',getUserData);
+router.get('/user/:email',getUserData);
 
 router.get('/:email/dashboard/projects',getAllProjects);
 
