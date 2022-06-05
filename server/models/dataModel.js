@@ -4,6 +4,11 @@ import { projectSchema } from "./projectSchema.js";
 const dataSchema = mongoose.Schema({
     email: {
         type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
         required: true
     },
     username: {
