@@ -1,5 +1,5 @@
 import dataModel from "../models/dataModel.js";
-import { returnUserData } from "./returnUserData.js";
+import { returnUserById } from './returnUserById.js'
 
 export const addProject = async(req,res) => {
     const { id } = req.params;
@@ -7,7 +7,7 @@ export const addProject = async(req,res) => {
     let foundUser;
 
     try {
-        foundUser = returnUserData(email);
+        foundUser = returnUserById(id);
         allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
     } catch (error) {
