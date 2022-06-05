@@ -5,7 +5,8 @@ export const addInputField = async(req,res) => {
     const { id,pid,sid } = req.params;
     let foundUser;
     try {
-        foundUser = returnUserById(id);
+        const foundUsers = await returnUserById(id);
+        const foundUser = foundUsers[0];
         if(!foundUser) throw Error('cannot get user due to some server error');
     } catch (error) {
         res.status(400).json({message: error});
