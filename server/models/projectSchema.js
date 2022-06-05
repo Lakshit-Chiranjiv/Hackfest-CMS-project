@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { customSchemaSchema } from "./customSchemaSchema";
+import { customSchemaSchema } from "./customSchemaSchema.js";
 
 export const projectSchema = mongoose.Schema({
     projectId: {
@@ -27,7 +27,7 @@ export const projectSchema = mongoose.Schema({
         required: true
     },
     banner: {
-        type: Image,
+        type: String,
         required: false
     },
     schemas: {

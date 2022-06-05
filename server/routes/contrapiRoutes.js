@@ -53,3 +53,5 @@ router.get('/:id/projects/:pid/schemas/:sid/data/:did',getSingleDataInstance);
 router.post('/:id/projects/:pid/schemas/:sid/data/add',addSchemaData);
 
 router.delete('/:id/projects/:pid/schemas/:sid/data/delete/:did',deleteSchemaData)
+
+export default router;

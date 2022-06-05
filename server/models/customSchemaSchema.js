@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { inputFieldSchema } from "./inputFieldSchemaa";
+import { inputFieldSchema } from "./inputFieldSchema.js";
 
 export const customSchemaSchema = mongoose.Schema({
     schemaId: {

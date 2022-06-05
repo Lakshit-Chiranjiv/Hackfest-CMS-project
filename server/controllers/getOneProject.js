@@ -1,4 +1,4 @@
-import { returnUserData } from "./returnUserData";
+import { returnUserData } from "./returnUserData.js";
 
 export const getOneProject = async(req,res) => {
     const { email,id } = req.params;

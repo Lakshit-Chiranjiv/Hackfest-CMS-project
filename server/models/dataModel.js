@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { projectSchema } from "./projectSchema";
+import { projectSchema } from "./projectSchema.js";
 
 const dataSchema = mongoose.Schema({
     email: {
