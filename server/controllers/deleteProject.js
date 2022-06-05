@@ -7,7 +7,8 @@ export const deleteProject = async(req,res) => {
     let foundUser;
 
     try {
-        foundUser = returnUserById(id);
+        const foundUsers = await returnUserById(id);
+        foundUser = foundUsers[0];
         allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
     } catch (error) {

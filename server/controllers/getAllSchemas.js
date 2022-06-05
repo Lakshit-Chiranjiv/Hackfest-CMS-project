@@ -3,7 +3,8 @@ import { returnUserData } from "./returnUserData.js";
 export const getAllSchemas = async(req,res) => {
     const { email,pid } = req.params;
     try {
-        const foundUser = returnUserData(email);
+        const foundUsers = await returnUserData(email);
+        const foundUser = foundUsers[0];
         const selectedProject = foundUser.projects.find(project => project.projectId===pid)
         const allSchemas = selectedProject.schemas;
         if(!allSchemas) throw Error('cannot get due to some server error');

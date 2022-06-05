@@ -6,7 +6,8 @@ export const addSchema = async(req,res) => {
     let foundUser;
 
     try {
-        foundUser = returnUserById(id);
+        const foundUsers = await returnUserById(id);
+        foundUser = foundUsers[0];
         if(!foundUser) throw Error('cannot get user due to some server error');
     } catch (error) {
         res.status(400).json({message: error});

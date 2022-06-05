@@ -3,7 +3,8 @@ import { returnUserById } from "./returnUserById.js";
 export const getSingleDataInstance = async(req,res) => {
     const { id,pid,sid,did } = req.params;
     try {
-        const foundUser = returnUserById(id);
+        const foundUsers = await returnUserById(id);
+        const foundUser = foundUsers[0];
         const selectedProject = foundUser.projects.find(project => project.projectId===pid)
         const selectedSchema = selectedProject.schemas.find(schema => schema.schemaId===sid);
         const schemaData = selectedSchema.data;

@@ -6,7 +6,8 @@ export const deleteSchema = async(req,res) => {
     let foundUser;
     let allSchemas;
     try {
-        foundUser = returnUserById(id);
+        const foundUsers = await returnUserById(id);
+        foundUser = foundUsers[0];
         const selectedProject = foundUser.projects.find(project => project.projectId===pid)
         allSchemas = selectedProject.schemas;
         if(!allSchemas) throw Error('cannot get user schemas due to some server error');

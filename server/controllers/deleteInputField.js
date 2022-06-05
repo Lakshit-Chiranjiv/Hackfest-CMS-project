@@ -6,7 +6,8 @@ export const deleteInputField = async(req,res) => {
     let foundUser;
     let schemaInputFields;
     try {
-        foundUser = returnUserById(id);
+        const foundUsers = await returnUserById(id);
+        foundUser = foundUsers[0];
         const selectedProject = foundUser.projects.find(project => project.projectId===pid)
         const selectedSchema = selectedProject.schemas.find(schema => schema.schemaId===sid)
         schemaInputFields = selectedSchema.inputFields;
