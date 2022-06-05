@@ -7,9 +7,7 @@ export const addSchema = async(req,res) => {
 
     try {
         foundUser = returnUserById(id);
-        const selectedProject = foundUser.projects.find(project => project.projectId===pid)
-        allSchemas = selectedProject.schemas;
-        if(!allSchemas) throw Error('cannot get due to some server error');
+        if(!foundUser) throw Error('cannot get user due to some server error');
     } catch (error) {
         res.status(400).json({message: error});
     }
