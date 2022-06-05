@@ -1,13 +1,12 @@
 import dataModel from "../models/dataModel.js";
-import { returnUserData } from "./returnUserData.js";
+import { returnUserById } from './returnUserById.js'
 
 export const addSchema = async(req,res) => {
     const { id,pid } = req.params;
-    let allSchema;
     let foundUser;
 
     try {
-        foundUser = returnUserData(email);
+        foundUser = returnUserById(id);
         const selectedProject = foundUser.projects.find(project => project.projectId===pid)
         allSchemas = selectedProject.schemas;
         if(!allSchemas) throw Error('cannot get due to some server error');
