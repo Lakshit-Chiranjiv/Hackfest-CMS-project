@@ -16,6 +16,6 @@ const dataSchema = mongoose.Schema({
     }
 });
 
-const dataModel = mongoose.model('data',dataSchema);
+const dataModel = mongoose.model('datas',dataSchema);
 
 export default dataModel;
