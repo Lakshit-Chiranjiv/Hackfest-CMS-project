@@ -1,6 +1,6 @@
 import { returnUserById } from "./returnUserById.js";
 
-export const deleteSchemaData = async(req,res) => {
+export const addSchemaData = async(req,res) => {
     const { id,pid,sid } = req.params;
 
     let foundUser;
