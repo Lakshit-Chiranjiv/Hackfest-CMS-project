@@ -1,6 +1,6 @@
 import { returnUserData } from "./returnUserData.js";
 
-export const getAllSchemas = async(req,res) => {
+export const getAllSchemaData = async(req,res) => {
     const { email,pid,sid } = req.params;
     try {
         const foundUser = returnUserData(email);
