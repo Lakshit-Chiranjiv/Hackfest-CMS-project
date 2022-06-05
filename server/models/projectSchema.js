@@ -20,11 +20,11 @@ export const projectSchema = mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        required: true
+        required: false
     },
     lastUpdated: {
         type: Date,
-        required: true
+        required: false
     },
     banner: {
         type: String,
