@@ -15,6 +15,7 @@ import { getOneSchema } from '../controllers/getOneSchema.js';
 import { getSingleDataInstance } from '../controllers/getSingleDataInstance.js';
 import { getUserData } from '../controllers/getUserData.js';
 import { deleteSchema } from './../controllers/deleteSchema.js';
+import { getSchemaDataByName } from './../controllers/getSchemaDataByName.js';
 
  
 const router = express.Router();
@@ -47,6 +48,8 @@ router.delete('/:id/projects/:pid/schemas/:sid/fields/delete/:fid',deleteInputFi
 
 
 router.get('/:email/projects/:pid/schemas/:sid/data',getAllSchemaData);
+
+router.get('/:email/projects/:pid/schemas/:sname/data',getSchemaDataByName);
 
 router.get('/:id/projects/:pid/schemas/:sid/data/:did',getSingleDataInstance);
 
