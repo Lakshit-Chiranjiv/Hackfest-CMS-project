@@ -29,9 +29,6 @@ export const loadAllEndpoints = async(userEmail) => {
         const foundUser = foundUsers[0];
         const allProjects = foundUser.projects;
         if(!allProjects) throw Error('cannot get due to some server error');
-
-        console.log(allProjects)
-        console.log(userEmail)
     
         allProjects.map(project => {
             project.schemas.map(schema => {
